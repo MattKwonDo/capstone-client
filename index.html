@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Beer Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -10,16 +10,281 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <!-- dynamic content scripts -->
+      <script src="//code.jquery.com/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <!-- end dynamic content scripts -->
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+    <body class="container">
+
+<!-- Start the default content -->
+<div id="default-content" class="dynamic-content">
+
+      <div id="jumbotron-top" class="jumbotron jumbotron-fluid  beforesignin">
+        <h2 id="title-message" class="title_message ">Beer Tracker</h2>
+        <div class="jumbotron-msg container push-spaces">
+          <p></div>
+        </div>
+
+<!-- ========= Authentication Container ============ -->
+      <!-- SIGN IN -->
+      <div id="signInModal" class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="form-title ">
+              <h3 class="sign-in-msg form-header">Log-In</h3>
+            </div>
+          </div>
+              <div class="auth-alert">
+                <h3 id="signInError" class="form-error" ></h3>
+              </div>
+              <div class="modal-body">
+
+        <form id="sign-in">
+          <div class="form-group blue-text">
+            <label for="name"> Email</label>
+            <input type="text" name="credentials[email]" class="form-control signInPaw" autocomplete="off" placeholder="Enter Email" required />
+           <label for="name">Password</label>
+           <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
+         </div>
+         <div class="padding">
+          <button type="submit" name="submit" value="SignIn" class="btn btn-primary btn-block"> Submit</button>
+        </div>
+      <div class="modal-footer"></div>
+      <div id="register" class="form-subtext register">
+        <p>Not Registered ?
+          <span id="sign-up-form" class="form-link"><a href='#'>Sign Up Here</a></span>
+        </p>
+      </div>
+      <div class="modal-footer"></div>
+          </form>
+      </div>
+        </div>
+      </div>
+
+
+      <!-- SIGN UP -->
+      <div id="signUpModal" class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="form-title mdl-card__title">
+              <h3 class="form-header">Create New Account</h3>
+            </div>
+              </div>
+              <div class="auth-alert">
+                <h3 id="signUpError" class="form-error"></h3>
+                <h3 id="signUpSuccess" class="form-success"></h3>
+              </div>
+              <div class="modal-body">
+                 <form id="sign-up">
+                   <div class="form-group blue-text">
+                    <label for="name">Email</label>
+                    <input type="text" name="credentials[email]" class="form-control" autocomplete="off" placeholder="Email" required />
+                    <label for="name">Password</label>
+                    <input id="password1" type="password" name="credentials[password]" class="form-control" autocomplete="off" placeholder="Password" required />
+                    <label for="name">Password Confirmation</label>
+                    <input id="password2" type="password" name="credentials[password_confirmation]" class="form-control" autocomplete="off" placeholder="Confirm Password" required />
+                     <!-- Password Validation (5/18) -->
+                    <span id="confirmMessage" class="confirmMessage"></span>
+                   </div>
+                   <!-- Password Validation (5/18) -->
+                   <button id="chpw-submit" type="submit" name="submit" value="SignUp" class="btn btn-primary btn-block">Submit</button>
+                   <div class="modal-footer"></div>
+                   <div class="form-subtext">
+                     <p>Did you get here on accident ?
+                       <span id="return-to-log-in" class="form-link"><a href='#'>Return to LogIn</a></span>
+                     </p>
+                   </div>
+                   <div class="modal-footer"></div>
+                 </form>
+              </div>
+        </div>
+      </div>
+<!-- Change Password Modal-->
+<!-- <div id="add-task-modal" class="container-fluid"> -->
+
+        <div id="changePasswordModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="form-title mdl-card__title">
+              <h3 class="form-header">Change Your Password</h3>
+            </div>
+          </div>
+
+          <div class="auth-alert">
+            <h3 id="ChangePasswordError" class="form-error"></h3>
+            <h3 id="ChangePasswordSuccess" class="form-success"></h3>
+          </div>
+          <div class="modal-body">
+          <form id="change-password">
+            <fieldset>
+              <div class="form-group-pw blue-text">
+               <label for="name">Old Password</label>
+               <input type="password" name="passwords[old]" class="form-control" autocomplete="off" placeholder="Old Password" required />
+               <label for="name">New Password</label>
+               <input type="password" name="passwords[new]" class="form-control" autocomplete="off" placeholder="New Password" required />
+
+               <div class="padding"></div>
+              <button id="changePasswordSubmit" type="submit" name="submit" value="Change Password" class="btn btn-primary btn-block">Change Password</button>
+            </div>
+            <div class="padding"></div>
+              <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+              </fieldset>
+          </form>
+        </div>
+            </div>
+              </div>
+        </div>
+
+  <!-- Logout confirm-->
+
+  <div id="confirm-logout" class="modal fade confirm-logout-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-content modal-header">
+
+      <div class="form-title mdl-card__title">
+        <h3 class="form-header">Are you sure you want to Log out?</h3>
+      </div>
+
+    <div class="modal-footer">
+      <button id="sign-out" type="submit"  name="submit" value="SignOut" class="btn btn-danger btn-sm  btn-block">SignOut</button>
+      <button type="button" data-dismiss="modal" class="btn btn-sm btn-block">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="nav-btns align-center">
+
+  <button id="LogOut" class='btn btn-primary align-center navbar-center ' type="submit" name="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> SignOut</button>
+
+  <!-- <button id="sign-out" type="submit"  name="submit" value="SignOut" class="btn btn-primary align-center navbar-center">SignOut</button> -->
+  <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+</div>
+
+<!-- END AUTHENTICATION MODALS  -->
+
+<div class="create-a-beer">
+  <button id="add-beer-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createBeer">
+    Create Beer
+  </button>
+</div>
+
+<!-- <div class="update-a-beer">
+  <button id="update-beer-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#updateBeer">
+    Modify Beer
+  </button>
+</div> -->
+
+<div class="get-beers">
+  <button id="get-beer-button" class="btn btn-primary btn-lg" type="button"  data-target="#">
+    Get Beers
+  </button>
+</div>
+
+<!-- Create Beer Modal -->
+
+</div>
+
+<!-- Create Beer Modal -->
+  <div id="createBeer" class="modal fade container-fluid" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="form-title mdl-card__title">
+        <h3 class="form-header">Create Beer</h3>
+      </div>
+    </div>
+    <div class="modal-body">
+
+      <form id="create-beer" class="form-horizontal">
+        <fieldset>
+            <div class="input-group">
+              <div class="col-sm-12">
+                <span class="input-group-addon " id="beer-title">Beer Title</span>
+                <input type="text" name="beer[title]" id="title" class="form-control" placeholder="Enter Beer Title Here ..." aria-describedby="basic-addon1" required>
+              </div>
+
+              <div class="col-sm-12">
+                <span class="input-group-addon" id="beer-q1">Beer Question</span>
+                <input type="text" name="beer[question]" id="q1" class="form-control" placeholder="What is your question?" aria-describedby="basic-addon1" required>
+              </div>
+
+              <div class="col-sm-12">
+                <span class="input-group-addon" id="expected-response-type">Expected response type...</span>
+                <select id="response-type" name="beer[response_type]" class="form-control" required>
+                  <option value="" disabled  hidden>Select expected response type...</option>
+                  <option value="String">Text response</option>
+                  <option value="Boolean">Response of only "Yes" or "No"</option>
+                  <option value="Number">Rating Response : on a scale from 1 - 5</option>
+                </select>
+              </div>
+            </div>
+            <div class="padding"></div>
+
+            <button type="submit" class="btn btn-primary btn-block" id= "create_beer">Create Beer</button>
+            <div class="padding"></div>
+
+            <button type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- End of Create Beer Modal -->
+
+
+
+    <div id="updateBeer" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Update Beer</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form id="update-beer">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="col-sm-10 hideMe">
+                      <span class="input-group-addon"  id="beer-id"></span>
+                      <input type="text" name="beer[id]" id="beerId" class="form-control" hidden placeholder="Beer ID" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="col-sm-10">
+                      <span class="input-group-addon"  id="beer-title"></span>
+                      <input type="text" name="beer[title]" id="beerTitle" class="form-control" placeholder="Beer Title" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="col-sm-10">
+                        <span class="input-group-addon" id="beer-q1"></span>
+                      <input type="text" name="beer[question]" id="beerQ1" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1" required>
+                    </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-primary" id= "update_beer">Update Beer</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </fieldset>
+                <br>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- beers content -->
+          <div class="list-group" id ="beers-content"></div>
+          <div class="list-group" id ="beers-content-text"></div>
+        <!-- responses content -->
+          <div class="list-group" id ="responses-content"></div>
+          <div class="list-group" id ="responses-content-text"></div>
+
+</div>
+<!-- End of default-content -->
+
+<!-- Dynamic Content could go here later -->
+
     </body>
 </html>
