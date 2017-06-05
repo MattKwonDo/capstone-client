@@ -3,6 +3,11 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events.js')
+// on document ready return beers
+const beerEvents = require('./beer/events.js')
+// if do dynamicContent:
+  // const api = require('./beer/api')
+  // const ui = require('./beer/ui')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -30,6 +35,7 @@ $(() => {
   })
 
   authEvents.addHandlers()
+  beerEvents.addHandlers()
   $('.form-control').val('')  // This clears out all the form input fields when the document is first loaded
   $('#signUpModal').hide()
   $('.nav-btns').hide()
