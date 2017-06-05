@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const beerEvents = require('../beer/events')
 
 const resetPwValidation = function () {
   const message = document.getElementById('confirmMessage')
@@ -48,6 +49,7 @@ const signInSuccess = (data) => {
   $('#beer-list-table').show()
   $('#get-beer-button').show()
   $('#add-beer-button').show()
+  beerEvents.onGetBeers()
 }
 
 const signInFailure = (error) => {

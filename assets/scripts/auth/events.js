@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+// const beerEvents = require('../beer/events')
 
 const onSignUpClick = function (event) {
   $('#signUpModal').show()
@@ -36,6 +37,7 @@ const onSignIn = (event) => {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+    // .then(beerEvents.onGetBeers)
 }
 
 const onChangePassword = function (event) {

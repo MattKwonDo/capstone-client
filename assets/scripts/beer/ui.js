@@ -1,7 +1,7 @@
 'use strict'
 
-// const store = require('../store')
-// const showBeersTemplate = require('../templates/beer.handlebars')
+const store = require('../store')
+const showBeersTemplate = require('../templates/beer.handlebars')
 const api = require('./api')
 
 const getBeers = (event) => {
@@ -51,18 +51,18 @@ const getBeersSuccess = (data) => {
   console.log(data.beers.length)
   console.log('got beers')
   // if (data.beers.length !== undefined)
-  // if (data.beers[0] !== undefined) {
-  //   const showBeersHtml = showBeersTemplate({ beers: data.beers })
-  //   store.beers = data.beers
-  //   // console.log('>>>>> store.beers = ', store.beers)
-  //   $('#beers-content').show()
-  //   $('.list-group').empty()
-  //   $('#beers-content').html(showBeersHtml)
-  // } else {
-  //   store.beers = data.beers
-  //   $('#beers-content-text').show()
-  //   $('#beers-content-text').text('you have no beers (╯°□°）╯︵ ┻━┻')
-  // }
+  if (data.beers[0] !== undefined) {
+    const showBeersHtml = showBeersTemplate({ beers: data.beers })
+    store.beers = data.beers
+    // console.log('>>>>> store.beers = ', store.beers)
+    $('#beers-content').show()
+    $('.list-group').empty()
+    $('#beers-content').html(showBeersHtml)
+  } else {
+    store.beers = data.beers
+    $('#beers-content-text').show()
+    $('#beers-content-text').text('you have no beers (╯°□°）╯︵ ┻━┻')
+  }
 }
 
 const getBeersFailure = (error) => {

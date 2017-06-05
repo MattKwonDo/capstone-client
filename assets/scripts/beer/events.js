@@ -123,5 +123,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  dynamicContent
+  dynamicContent,
+  onGetBeers
 }
