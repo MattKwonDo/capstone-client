@@ -56,8 +56,9 @@ const populateUpdateForm = function (id) {
   const beer = findBeerById(id)
   // console.log('>> beer.title is ', beer.title)
   $('#beerId').val(beer.id)
-  $('#beerTitle').val(beer.title)
-  $('#beer-name-update').val(beer.question)
+  $('#beer-brand-update').val(beer.brand)
+  $('#beer-name-update').val(beer.name)
+  $('#beer-style-update').val(beer.style)
   onShowUpdateBeer()
 }
 
