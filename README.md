@@ -1,3 +1,48 @@
+# capstone-client
+
+This is the front-end for my capstone project, a beer tracker, which will be
+deployed on Heroku.
+
+## Wireframes
+
+[Wireframes](http://imgur.com/k64sKoB)
+
+## User Stories
+
+- As a person who enjoys trying different beers I want to be able to use an app
+that lets me track the beers I try.
+- As a user of a beer tracking app, I want to sign up, so that I can track beers.
+- As a user, I want to have a username and password that allows me to login.
+- As a user, I want to change a password so that I can keep my account secure.
+- As a user, I want to sign out so that I can keep my list secure.
+- As a user, I want to create a new entry for new beers.
+- As a user, I want to update existing entries if needed.
+- As a user, I want to delete entries if I want to forget about some.
+- As a user, I want to be able to view all of my beers in a dashboard.
+
+## content to be added in the future:
+Two README.md files with:
+Client:
+API:
+    * An embedded screenshot of the app
+    * Explanations of the technologies used
+    * A couple paragraphs about the general approach you took
+    * Installation instructions for any dependencies
+    * Link to your user stories – who are your users, what do they want, and why?
+    * Link to your wireframes – sketches of major views / interfaces in your application
+    * Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
+    * Descriptions of any unsolved problems or major hurdles you had to overcome
+
+    * Links to your client-side application, deployed client app, and deployed api.
+    * An ERD
+    * A list of your API routes
+    * Installation instructions for any dependencies
+    * Explanations of the technologies used
+    * A couple paragraphs about the general approach you took
+    * Descriptions of any unsolved problems or major hurdles you had to overcome
+
+# Template Content:
+
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
 # browser-template
