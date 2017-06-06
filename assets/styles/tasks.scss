@@ -1,0 +1,41 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$dark-gray: #4e4e4e;
+$light-gray: #eeeeee;
+$container-width: 400px;
+$font-size: 70px;
+$dark-green: #3c763d;
+
+.edit {
+  box-sizing: border-box;
+}
+.completed {
+  color: red;
+}
+
+.task-buttons{
+  padding-bottom: 20px;
+}
+.modal-header {
+  background-color: $light-gray;
+  border-color: $light-gray;
+  color: $dark-green;
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 6px;
+}
+
+.jumbotron {
+  padding-top: 15px;
+  color: $dark-green;
+}
+
+#add-task {
+  font-size: 20px;
+}
+.task-name {
+  font-size: 17px;
+  margin-left: 5px;
+  padding: 5px;
+}

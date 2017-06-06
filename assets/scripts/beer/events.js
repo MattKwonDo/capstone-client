@@ -28,6 +28,9 @@ const onCreateBeer = function (event) {
 
 const onUpdateBeer = function (event) {
   event.preventDefault()
+  console.log(event)
+  console.log(event.target)
+  console.log(this)
   const data = getFormFields(this)
   // console.log('>>>>>>>>onUpdateBeer: data = ', data)
   api.updateBeer(data)
