@@ -9,7 +9,20 @@ const beerEvents = require('./beer/events.js')
   // const api = require('./beer/api')
   // const ui = require('./beer/ui')
 
+// for secret keys:
+// const MessageVerifier = require('lib/wiring/message-verifier')
+// const googlePlacesKey = process.env.SECRET_PLACES_API_KEY
+const googlePlacesKeyPrint = function () {
+  console.log('secure-places-token', process.env.SECRET_PLACES_API_KEY)
+}
+// const googleJavascriptKey = new MessageVerifier('secure-javascript-token', process.env.SECRET_JAVASCRIPT_API_KEY)
+const googleJavascriptKeyPrint = function () {
+  console.log('secure-javascript-token', process.env.SECRET_JAVASCRIPT_API_KEY)
+}
+
 $(() => {
+  googlePlacesKeyPrint()
+  googleJavascriptKeyPrint()
   setAPIOrigin(location, config)
   $('.form-control').val('')
   $('#add-task-modal').on('hidden.bs.modal', function () {
