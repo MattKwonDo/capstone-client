@@ -78,12 +78,6 @@ const onShowUpdateBeer = function () {
   $('#updateBeer').modal('show')
 }
 
-const onGetBeers = (event) => {
-  api.getBeers()
-    .then(ui.getBeersSuccess)
-    .catch(ui.getBeersFailure)
-}
-
 function getParameterByName () {
   // print url
   // console.log(window.location.href)
@@ -107,11 +101,20 @@ const dynamicContent = getParameterByName()
 const deleteItem = function () {
   event.preventDefault()
   const id = $(this).attr('data-id')
+  // createTask($(this).closest('div').data('id'), prompt('Enter the task name', ''))
+  $('#beers-content').removeClass('animated rollIn')
+  $(this).closest('tr').addClass('animated fadeOutUpBig timing') // .slideUp(300).delay(800)
   // console.log('deleteItem() : id is: ' + id)
   api.deleteBeer(id)
-    .done(ui.deleteBeerSuccess)
-    .fail(ui.deleteBeerFailure)
-  onGetBeers()
+    .then(ui.deleteBeerSuccess)
+    .catch(ui.deleteBeerFailure)
+    // .then(onGetBeers()) // moved this to ui
+}
+
+const onGetBeers = (event) => {
+  api.getBeers()
+    .then(ui.getBeersSuccess)
+    .catch(ui.getBeersFailure)
 }
 
 const addHandlers = () => {

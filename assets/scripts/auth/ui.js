@@ -49,6 +49,7 @@ const signInSuccess = (data) => {
   $('#beer-list-table').show()
   $('#get-beer-button').show()
   $('#add-beer-button').show()
+  $('#beers-content').addClass('animated rollIn')
   beerEvents.onGetBeers()
 }
 

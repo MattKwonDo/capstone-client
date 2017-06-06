@@ -17,6 +17,7 @@ const clearBeerModal = function () {
 const createBeerSuccess = (data) => {
   // console.log('createBeerSuccess')
   $('.list-group').empty()
+// todo: add animation to the last item in this list
   getBeers()
 }
 
@@ -55,12 +56,17 @@ const getBeersSuccess = (data) => {
     const showBeersHtml = showBeersTemplate({ beers: data.beers })
     store.beers = data.beers
     // console.log('>>>>> store.beers = ', store.beers)
-    $('#beers-content').show()
     $('.list-group').empty()
+    $('#beers-content').show()
     $('#beers-content').html(showBeersHtml)
+    console.log('woah, all the way here')
+    // console.log('this: ', this)
+    // $(this).last('tr').addClass('animated fadeOutUpBig timing')
+    // $('#beers-content').removeClass('animated rollIn')
   } else {
     store.beers = data.beers
     $('#beers-content-text').show()
+    // $('#beers-content-text').addClass('animated rollIn')
     $('#beers-content-text').text('you have no beers (╯°□°）╯︵ ┻━┻')
   }
 }
@@ -146,10 +152,11 @@ const getOneDynamicBeerFailure = (error) => {
 
 const deleteBeerSuccess = (data) => {
   // store.beer = data.beer
-  // console.log('deleteBeerSuccess')
-  getBeers()
-  $('#responses-content').hide()
-  $('#responses-content-text').hide()
+  console.log('deleteBeerSuccess')
+  // $('#beers-content').addClass('animated rollIn')
+  // getBeers()
+  // $('#responses-content').hide()
+  // $('#responses-content-text').hide()
 }
 
 const deleteBeerFailure = (error) => {
