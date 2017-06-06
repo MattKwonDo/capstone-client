@@ -1,2 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  // background-color: $background-color;
+  // color: $font-color;
+  background-position: bottom;
+  // position: relative;
+  // background: url('../images/adam-wilson-251959.jpg') ; // center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  // background-repeat: repeat-x;
+  background-size: cover;
+  display: block;
+  margin: 0 auto;
+}
