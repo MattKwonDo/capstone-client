@@ -1,5 +1,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'bootstrap.css';
+@import 'bootstrap.min.css';
+@import 'business-casual.css';
 
 body {
   // background-color: $background-color;
@@ -15,9 +18,9 @@ body {
   margin: 0 auto;
 }
 
-.hideMe {
-  display: none;
-}
+// #default-content {
+//   display: none;
+// }
 
 // original styles:
 // $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
