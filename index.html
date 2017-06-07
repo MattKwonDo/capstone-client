@@ -36,17 +36,68 @@
     <body>
 
 <!-- Start the default content -->
-<!-- <div id="default-content" class="dynamic-content"> -->
-
-      <!-- <div id="jumbotron-top" class="jumbotron jumbotron-fluid  beforesignin">
-        <h2 id="title-message" class="title_message ">Beer Tracker</h2>
-        <div class="jumbotron-msg container push-spaces">
-          <p></div>
-        </div> -->
+<div id="default-content" class="dynamic-content">
 
 <!-- ========= Authentication Container ============ -->
+<!-- SIGN IN -->
+<div id="signInModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+  <div class="modal-dialog"> <!-- makes the box small -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-title mdl-card__title">
+          <h3 class="sign-in-msg form-header">Sign-In</h3>
+        </div>
+      </div>
+      <div class="auth-alert">
+        <h3 id="signInError" class="form-error" ></h3>
+      </div>
+
+      <div class="modal-body">
+        <form id="sign-in">
+          <fieldset>
+            <div class="form-group blue-text">
+              <label for="name"> Email</label>
+              <input type="text" name="credentials[email]" class="form-control signInPaw" autocomplete="off" placeholder="Enter Email" required />
+             <label for="name">Password</label>
+             <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
+            </div>
+            <div class="padding">
+              <button type="submit" name="submit" value="SignIn" class="btn btn-primary btn-block" data-toggle="modal">Sign In</button>
+            </div>
+            <button id="sign-in-modal-close" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+          </fieldset>
+
+          <!-- <div id="register" class="form-subtext register">
+            <p>Not Registered?
+              <span id="sign-up-form" class="form-link"><a href='#'>Sign Up Here</a></span>
+            </p>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div id=signInModal class="modal fade">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <form id="sign-in">
+         <div class="form-group blue-text">
+           <label for="name">Email</label>
+           <input type="text" name="credentials[email]" class="form-control signInPaw" autocomplete="off" placeholder="Enter Email" required />
+          <label for="name">Password</label>
+          <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
+         </div>
+         <div class="padding">
+           <button type="submit" name="submit" value="SignIn" class="btn btn-primary btn-block">Sign In</button>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div> -->
+
       <!-- SIGN IN -->
-      <div id="signInModal" class="modal-dialog" role="document">
+      <!-- <div id="signInModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
         <div class="modal-content">
           <div class="modal-header">
             <div class="form-title ">
@@ -66,14 +117,21 @@
            <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
          </div>
          <div class="padding">
-          <button type="submit" name="submit" value="SignIn" class="btn btn-primary btn-block"> Submit</button>
-        </div>
-      <div class="modal-footer"></div>
+          <button type="submit" name="submit" value="SignIn" class="btn btn-primary btn-block" data-toggle="modal">Sign In</button> -->
+          <!-- data-toggle="modal"> Submit</button> -->
+        <!-- </div> -->
+
+        <!-- <button id="changePasswordSubmit" type="submit" name="submit" class="btn btn-primary btn-block">Change Password</button> -->
+        <!-- value="Change Password"  -->
+
+       <!-- <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button> -->
+
+      <!-- <div class="modal-footer"></div>
       <div id="register" class="form-subtext register">
         <p>Not Registered ?
           <span id="sign-up-form" class="form-link"><a href='#'>Sign Up Here</a></span>
         </p>
-      </div>
+      </div> -->
       <!-- <button type="button" class="btn btn-default glyphicon animated infinite bounce flash" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button> -->
     <!-- <button type="button" class="btn btn-default glyphicon animated infinite bounce slideInRight" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button> -->
       <!-- <button type="button" class="btn btn-default glyphicon animated infinite bounce zoomOutLeft" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button> -->
@@ -85,87 +143,93 @@
       <!-- <button type="button" class="btn btn-default glyphicon animated infinite bounce flipInX" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button> -->
     <!-- <button type="button" class="btn btn-default glyphicon animated infinite fadeOutUpBig timing" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button> -->
 
-
-      <div class="modal-footer"></div>
+      <!-- <div class="modal-footer"></div>
           </form>
       </div>
         </div>
-      </div>
+      </div> -->
 
 
       <!-- SIGN UP -->
-      <div id="signUpModal" class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="form-title mdl-card__title">
-              <h3 class="form-header">Create New Account</h3>
-            </div>
-              </div>
-              <div class="auth-alert">
-                <h3 id="signUpError" class="form-error"></h3>
-                <h3 id="signUpSuccess" class="form-success"></h3>
-              </div>
-              <div class="modal-body">
-                 <form id="sign-up">
-                   <div class="form-group blue-text">
-                    <label for="name">Email</label>
-                    <input type="text" name="credentials[email]" class="form-control" autocomplete="off" placeholder="Email" required />
-                    <label for="name">Password</label>
-                    <input id="password1" type="password" name="credentials[password]" class="form-control" autocomplete="off" placeholder="Password" required />
-                    <label for="name">Password Confirmation</label>
-                    <input id="password2" type="password" name="credentials[password_confirmation]" class="form-control" autocomplete="off" placeholder="Confirm Password" required />
-                     <!-- Password Validation (5/18) -->
-                    <span id="confirmMessage" class="confirmMessage"></span>
-                   </div>
-                   <!-- Password Validation (5/18) -->
-                   <button id="chpw-submit" type="submit" name="submit" value="SignUp" class="btn btn-primary btn-block">Submit</button>
-                   <div class="modal-footer"></div>
-                   <div class="form-subtext">
-                     <p>Did you get here on accident ?
-                       <span id="return-to-log-in" class="form-link"><a href='#'>Return to LogIn</a></span>
-                     </p>
-                   </div>
-                   <div class="modal-footer"></div>
-                 </form>
-              </div>
-        </div>
-      </div>
-
-<!-- Start the default content -->
-<div id="default-content" class="dynamic-content">
-
-<!-- Change Password Modal-->
-
-        <div id="changePasswordModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
-          <div class="modal-dialog">
+      <div id="signUpModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <div class="form-title mdl-card__title">
-                <h3 class="form-header">Change Your Password</h3>
+                <h3 class="form-header">Create New Account</h3>
               </div>
             </div>
-
             <div class="auth-alert">
-              <h3 id="ChangePasswordError" class="form-error"></h3>
-              <h3 id="ChangePasswordSuccess" class="form-success"></h3>
+              <h3 id="signUpError" class="form-error"></h3>
+              <h3 id="signUpSuccess" class="form-success"></h3>
             </div>
             <div class="modal-body">
-              <form id="change-password">
-                <fieldset>
-                  <div class="form-group-pw blue-text">
-                   <label for="name">Old Password</label>
-                   <input type="password" name="passwords[old]" class="form-control" autocomplete="off" placeholder="Old Password" required />
-                   <label for="name">New Password</label>
-                   <input type="password" name="passwords[new]" class="form-control" autocomplete="off" placeholder="New Password" required />
+               <form id="sign-up">
+                 <div class="form-group blue-text">
+                  <label for="name">Email</label>
+                  <input type="text" name="credentials[email]" class="form-control" autocomplete="off" placeholder="Email" required />
+                  <label for="name">Password</label>
+                  <input id="password1" type="password" name="credentials[password]" class="form-control" autocomplete="off" placeholder="Password" required />
+                  <label for="name">Password Confirmation</label>
+                  <input id="password2" type="password" name="credentials[password_confirmation]" class="form-control" autocomplete="off" placeholder="Confirm Password" required />
+                   <!-- Password Validation (5/18) -->
+                  <span id="confirmMessage" class="confirmMessage"></span>
+                 </div>
+                 <!-- Password Validation (5/18) -->
+                 <button id="chpw-submit" type="submit" name="submit" value="SignUp" class="btn btn-primary btn-block">Submit</button>
+                 <div class="modal-footer"></div>
+                 <div class="form-subtext">
+                   <p>Did you get here on accident ?
+                     <span id="return-to-log-in" class="form-link"><a href='#'>Return to LogIn</a></span>
+                   </p>
+                 </div>
+                 <div class="modal-footer"></div>
+               </form>
+            </div>
 
-                   <div class="padding"></div>
-                   <button id="changePasswordSubmit" type="submit" name="submit" class="btn btn-primary btn-block">Change Password</button>
-                   <!-- value="Change Password"  -->
-                  </div>
-                  <div class="padding"></div>
-                  <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
-                </fieldset>
-              </form>
+            <div class="alert alert-success">
+              <h4>Sign-Up Complete!</h4>
+              <p>Your acount was created successfully. Please Sign-In!</p>
+            </div>
+
+            <div class="alert alert-success">
+              <h4>Sign-Up Failure!</h4>
+              <p>Your acount was not created successfully. Please try again!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Change Password Modal-->
+        <div id="changePasswordModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="form-title mdl-card__title">
+                  <h3 class="form-header">Change Your Password</h3>
+                </div>
+              </div>
+              <div class="auth-alert">
+                <h3 id="ChangePasswordError" class="form-error"></h3>
+                <h3 id="ChangePasswordSuccess" class="form-success"></h3>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                  <fieldset>
+                    <div class="form-group-pw blue-text">
+                     <label for="name">Old Password</label>
+                     <input type="password" name="passwords[old]" class="form-control" autocomplete="off" placeholder="Old Password" required />
+                     <label for="name">New Password</label>
+                     <input type="password" name="passwords[new]" class="form-control" autocomplete="off" placeholder="New Password" required />
+
+                     <div class="padding"></div>
+                     <button id="changePasswordSubmit" type="submit" name="submit" class="btn btn-primary btn-block">Change Password</button>
+                     <!-- value="Change Password"  -->
+                    </div>
+                    <div class="padding"></div>
+                    <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+                  </fieldset>
+                </form>
               </div>
             </div>
           </div>
@@ -308,8 +372,15 @@
 
 
 <!-- bootstrap -->
+
+<!-- <div id="jumbotron-top" class="jumbotron jumbotron-fluid  beforesignin">
+  <h2 id="title-message" class="title_message ">Beer Tracker</h2>
+  <div class="jumbotron-msg container push-spaces">
+    <p></div>
+  </div> -->
+
   <!-- Navigation -->
-  <nav class="navbar navbar-default fixed-top bg-faded" role="navigation">
+  <nav class="navbar navbar-default fixed-top bg-faded" role="navigation"> <!-- class="sticky-top"  -->
       <div>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -329,14 +400,24 @@
                       <a href="index.html">Home</a>
                   </li> -->
                   <li>
-                    <div class="nav-btns align-center">
+                    <div class="nav-btns align-center page-load-view">
+                      <button id="sign-in-btn" class='align-center navbar-center' type="submit" name="submit" data-toggle="modal" data-target="#signInModal">Sign In</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="nav-btns align-center page-load-view">
+                      <button id="sign-up-btn" class='align-center navbar-center' type="submit" name="submit" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="nav-btns align-center sign-in-view">
                       <!-- <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button> -->
                       <button id="change-password-modal" type="button" class="navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
                     </div>
                   </li>
                   <li>
-                    <div class="nav-btns align-center">
-                      <button id="LogOut" class='align-center navbar-center ' type="submit" name="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> SignOut</button>
+                    <div class="nav-btns align-center sign-in-view">
+                      <button id="LogOut" class='align-center navbar-center ' type="submit" name="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> Sign Out</button>
                     </div>
                   </li>
               </ul>
@@ -397,7 +478,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row page-load-view">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
@@ -413,7 +494,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="beer-content-container">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>

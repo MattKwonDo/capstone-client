@@ -43,6 +43,8 @@ const signInSuccess = (data) => {
   $('#change-password').trigger('reset')
   $('.nav-btns').show()
 // show main page buttons
+  $('.page-load-view').hide()
+  $('#beer-content-container').show()
   // $('#default-content').toggle()
   $('.create-a-beer').show()
   $('.update-a-beer').show()

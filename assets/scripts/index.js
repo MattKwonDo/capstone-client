@@ -9,20 +9,7 @@ const beerEvents = require('./beer/events.js')
   // const api = require('./beer/api')
   // const ui = require('./beer/ui')
 
-// for secret keys:
-// const MessageVerifier = require('lib/wiring/message-verifier')
-// const googlePlacesKey = process.env.SECRET_PLACES_API_KEY
-const googlePlacesKeyPrint = function () {
-  console.log('secure-places-token', process.env.SECRET_PLACES_API_KEY)
-}
-// const googleJavascriptKey = new MessageVerifier('secure-javascript-token', process.env.SECRET_JAVASCRIPT_API_KEY)
-const googleJavascriptKeyPrint = function () {
-  console.log('secure-javascript-token', process.env.SECRET_JAVASCRIPT_API_KEY)
-}
-
 $(() => {
-  googlePlacesKeyPrint()
-  googleJavascriptKeyPrint()
   setAPIOrigin(location, config)
   $('.form-control').val('')
   $('#add-task-modal').on('hidden.bs.modal', function () {
@@ -51,34 +38,19 @@ $(() => {
   beerEvents.addHandlers()
   $('.form-control').val('')  // This clears out all the form input fields when the document is first loaded
   $('#signUpModal').hide()
-  $('.nav-btns').hide()
+  $('#signInModal').hide()
+  // $('.nav-btns').hide()
+  $('.page-load-view').show()
+  $('#beer-content-container').hide()
   $('.create-a-beer').hide()
   $('.update-a-beer').hide()
   $('.get-beers').hide()
 })
-
-// query parameters from URL
+//
 // $(document).ready(function () {
-//   $('input:radio').attr('checked', false)
-//   $('input[typed="radio"]').removeAttr('checked')
-// // Check if the URL parameter is apples
-//   const dc = beerEvents.dynamicContent
-//   // console.log(dc)
-//   if (dc[0] === 'respondents' && dc[1] !== undefined) { // Check if the URL parameter is bananas
-//     $('#respondents').show()
-//     api.getOneDynamicBeer(dc[1])
-//       .then(ui.getOneDynamicBeerSuccess)
-//       .catch(ui.getOneDynamicBeerFailure)
-//     // Check if the URL parmeter is empty or not defined, display default content
-//   } else {
-//     $('#default-content').show()
-//   }
+//   $('#respondents').bind('keypress', function (event) {
+//     if (event.keyCode === 13) {
+//       return false
+//     }
+//   })
 // })
-
-$(document).ready(function () {
-  $('#respondents').bind('keypress', function (event) {
-    if (event.keyCode === 13) {
-      return false
-    }
-  })
-})
