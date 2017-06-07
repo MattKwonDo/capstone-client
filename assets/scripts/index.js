@@ -39,7 +39,7 @@ $(() => {
   beerEvents.addHandlers()
   $('.form-control').val('')  // This clears out all the form input fields when the document is first loaded
   $('#signUpModal').hide()
-  $('#signInModal').hide()
+  // $('#signInModal').hide()
   // $('.nav-btns').hide()
   $('.page-load-view').show()
   $('#beer-content-container').hide()

@@ -1,4 +1,6 @@
-<!-- Create Beer Modal -->
+
+
+<!-- Working Create Beer Modal -->
   <div id="createBeer" class="modal fade container-fluid" tabindex="-1" role="dialog">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -50,4 +52,51 @@
   </div>
   </div>
 
+  <!-- End of Create Beer Modal -->
+
+
+
+
+  <!-- NOT WORKING Create Beer Modal -->
+    <div id="createBeer" class="modal fade container-fluid" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-title mdl-card__title">
+          <h3 class="form-header">Create Beer</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+
+        <form id="create-beer" class="form-horizontal">
+          <fieldset>
+              <div class="input-group">
+                <div class="col-sm-12">
+                  <span class="input-group-addon">Beer Brand</span>
+                  <input type="text" name="beer[brand]" id="beer-brand" class="form-control" placeholder="Beer Brand" aria-describedby="basic-addon1" required>
+                </div>
+
+                <div class="col-sm-12">
+                  <span class="input-group-addon" id="beer-q1">Beer Name</span>
+                  <input type="text" name="beer[name]" id="q1" class="form-control" placeholder="Beer Name" aria-describedby="basic-addon1" required>
+                </div>
+
+                <div class="col-sm-12">
+                  <span class="input-group-addon">Beer Style</span>
+                  <input type="text" name="beer[style]" id="beer-style" class="form-control" placeholder="Beer Style Here" aria-describedby="basic-addon1" required>
+                </div>
+
+              </div>
+              <div class="padding"></div>
+
+              <button type="submit" data-dismiss="modal" class="btn btn-primary btn-block" id="create_beer">Create Beer</button>
+              <div class="padding"></div>
+
+              <button type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
   <!-- End of Create Beer Modal -->
