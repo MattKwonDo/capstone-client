@@ -135,45 +135,60 @@
 <div id="default-content" class="dynamic-content">
 
 <!-- Change Password Modal-->
-<!-- <div id="add-task-modal" class="container-fluid"> -->
 
         <div id="changePasswordModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="form-title mdl-card__title">
-              <h3 class="form-header">Change Your Password</h3>
-            </div>
-          </div>
-
-          <div class="auth-alert">
-            <h3 id="ChangePasswordError" class="form-error"></h3>
-            <h3 id="ChangePasswordSuccess" class="form-success"></h3>
-          </div>
-          <div class="modal-body">
-          <form id="change-password">
-            <fieldset>
-              <div class="form-group-pw blue-text">
-               <label for="name">Old Password</label>
-               <input type="password" name="passwords[old]" class="form-control" autocomplete="off" placeholder="Old Password" required />
-               <label for="name">New Password</label>
-               <input type="password" name="passwords[new]" class="form-control" autocomplete="off" placeholder="New Password" required />
-
-               <div class="padding"></div>
-              <button id="changePasswordSubmit" type="submit" name="submit" value="Change Password" class="btn btn-primary btn-block">Change Password</button>
-            </div>
-            <div class="padding"></div>
-              <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
-              </fieldset>
-          </form>
-        </div>
-            </div>
+          <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="form-title mdl-card__title">
+                <h3 class="form-header">Change Your Password</h3>
               </div>
+            </div>
+
+            <div class="auth-alert">
+              <h3 id="ChangePasswordError" class="form-error"></h3>
+              <h3 id="ChangePasswordSuccess" class="form-success"></h3>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <fieldset>
+                  <div class="form-group-pw blue-text">
+                   <label for="name">Old Password</label>
+                   <input type="password" name="passwords[old]" class="form-control" autocomplete="off" placeholder="Old Password" required />
+                   <label for="name">New Password</label>
+                   <input type="password" name="passwords[new]" class="form-control" autocomplete="off" placeholder="New Password" required />
+
+                   <div class="padding"></div>
+                   <button id="changePasswordSubmit" type="submit" name="submit" class="btn btn-primary btn-block">Change Password</button>
+                   <!-- value="Change Password"  -->
+                  </div>
+                  <div class="padding"></div>
+                  <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+                </fieldset>
+              </form>
+              </div>
+            </div>
+          </div>
         </div>
 
-  <!-- Logout confirm-->
-
-  <div id="confirm-logout" class="modal fade confirm-logout-modal" tabindex="-1" role="dialog">
+  <!-- Logout modal -->
+  <div id="confirm-logout" class="modal fade container-fluid confirm-logout-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="form-title mdl-card__title">
+            <h3 class="form-header">Change Your Password</h3>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="sign-out" type="submit" data-dismiss="modal" name="submit" class="btn btn-danger btn-sm  btn-block">SignOut</button>
+          <button type="button" data-dismiss="modal" class="btn btn-sm btn-block">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  -->
+  <!-- <div id="confirm-logout" class="modal fade confirm-logout-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-content modal-header">
 
       <div class="form-title mdl-card__title">
@@ -185,167 +200,9 @@
       <button type="button" data-dismiss="modal" class="btn btn-sm btn-block">Cancel</button>
     </div>
   </div>
-</div>
-
-<!-- bootstrap -->
-<div class="brand">Business Casual</div>
-    <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <!-- <li>
-                        <a href="index.html">Home</a>
-                    </li> -->
-                    <li>
-                      <!-- <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button> -->
-                      <button id="change-password-modal" type="button" class="navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
-                    </li>
-                    <li>
-                      <div class="nav-btns align-center">
-                        <button id="LogOut" class='align-center navbar-center ' type="submit" name="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> SignOut</button>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="create-a-beer">
-                        <button id="add-beer-button" type="button" class="" data-toggle="modal" data-target="#createBeer">
-                          Create Beer
-                        </button>
-                      </div>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <div class="container">
-
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators hidden-xs">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="img-responsive img-full" src="assets/styles/img/slide-1.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="assets/styles/img/slide-2.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="assets/styles/img/slide-3.jpg" alt="">
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
-                    </div>
-                    <h2 class="brand-before">
-                        <small>Welcome to</small>
-                    </h2>
-                    <h1 class="brand-name">Business Casual</h1>
-                    <hr class="tagline-divider">
-                    <h2>
-                        <small>By
-                            <strong>Start Bootstrap</strong>
-                        </small>
-                    </h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Build a website
-                        <strong>worth visiting</strong>
-                    </h2>
-                    <hr>
-                    <img class="img-responsive img-border img-left" src="assets/styles/img/intro-pic.jpg" alt="">
-                    <hr class="visible-xs">
-                    <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                    <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Beautiful boxes
-                        <strong>to showcase your content</strong>
-                    </h2>
-                    <hr>
-                    <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
-<!-- end bootstrap -->
-
-<!-- <div class="update-a-beer">
-  <button id="update-beer-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#updateBeer">
-    Modify Beer
-  </button>
 </div> -->
+<!--  -->
+
 
 <!-- <div class="get-beers">
   <button id="get-beer-button" class="btn btn-primary btn-lg" type="button"  data-target="#">
@@ -353,66 +210,51 @@
   </button>
 </div> -->
 
-<!-- Create Beer Modal -->
+<!-- Modals -->
+  <!-- Create Beer Modal -->
+    <div id="createBeer" class="modal fade container-fluid" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-title mdl-card__title">
+          <h3 class="form-header">Create Beer</h3>
+        </div>
+      </div>
+      <div class="modal-body">
 
+        <form id="create-beer" class="form-horizontal">
+          <fieldset>
+              <div class="input-group">
+                <div class="col-sm-12">
+                  <span class="input-group-addon">Beer Brand</span>
+                  <input type="text" name="beer[brand]" id="beer-brand" class="form-control" placeholder="Beer Brand" aria-describedby="basic-addon1" required>
+                </div>
 
+                <div class="col-sm-12">
+                  <span class="input-group-addon" id="beer-q1">Beer Name</span>
+                  <input type="text" name="beer[name]" id="q1" class="form-control" placeholder="Beer Name" aria-describedby="basic-addon1" required>
+                </div>
 
-<!-- Create Beer Modal -->
-  <div id="createBeer" class="modal fade container-fluid" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <div class="form-title mdl-card__title">
-        <h3 class="form-header">Create Beer</h3>
+                <div class="col-sm-12">
+                  <span class="input-group-addon">Beer Style</span>
+                  <input type="text" name="beer[style]" id="beer-style" class="form-control" placeholder="Beer Style Here" aria-describedby="basic-addon1" required>
+                </div>
+
+              </div>
+              <div class="padding"></div>
+
+              <button type="submit" name="submit" data-dismiss="modal" class="btn btn-primary btn-block" id="create_beer">Create Beer</button>
+              <div class="padding"></div>
+
+              <button type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="modal-body">
-
-      <form id="create-beer" class="form-horizontal">
-        <fieldset>
-            <div class="input-group">
-              <div class="col-sm-12">
-                <span class="input-group-addon">Beer Brand</span>
-                <input type="text" name="beer[brand]" id="beer-brand" class="form-control" placeholder="Beer Brand" aria-describedby="basic-addon1" required>
-              </div>
-
-              <div class="col-sm-12">
-                <span class="input-group-addon" id="beer-q1">Beer Name</span>
-                <input type="text" name="beer[name]" id="q1" class="form-control" placeholder="Beer Name" aria-describedby="basic-addon1" required>
-              </div>
-
-              <div class="col-sm-12">
-                <span class="input-group-addon">Beer Style</span>
-                <input type="text" name="beer[style]" id="beer-style" class="form-control" placeholder="Beer Style Here" aria-describedby="basic-addon1" required>
-              </div>
-
-              <!-- <div class="col-sm-12">
-                <span class="input-group-addon" id="expected-response-type">Expected response type...</span>
-                <select id="response-type" name="beer[response_type]" class="form-control" required>
-                  <option value="" disabled  hidden>Select expected response type...</option>
-                  <option value="String">Text response</option>
-                  <option value="Boolean">Response of only "Yes" or "No"</option>
-                  <option value="Number">Rating Response : on a scale from 1 - 5</option>
-                </select>
-              </div> -->
-            </div>
-            <div class="padding"></div>
-
-            <button type="submit" class="btn btn-primary btn-block" id= "create_beer">Create Beer</button>
-            <div class="padding"></div>
-
-            <button type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
-          </fieldset>
-        </form>
-      </div>
     </div>
-  </div>
-  </div>
-
   <!-- End of Create Beer Modal -->
-
-
-
+  <!-- Update Beer Modal -->
     <div id="updateBeer" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
@@ -458,12 +300,170 @@
             </div>
           </div>
         </div>
-        <!-- beers content -->
-          <div class="list-group" id="beers-content"></div>
-          <div class="list-group" id="beers-content-text"></div>
-        <!-- responses content -->
-          <!-- <div class="list-group" id="responses-content"></div>
-          <div class="list-group" id="responses-content-text"></div> -->
+  <!-- End of Update Beer Modal -->
+
+  <!-- responses content -->
+    <!-- <div class="list-group" id="responses-content"></div>
+    <div class="list-group" id="responses-content-text"></div> -->
+
+
+<!-- bootstrap -->
+<div class="brand">Beer Tracker</div>
+    <div class="address-bar">A beautiful place</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!-- <li>
+                        <a href="index.html">Home</a>
+                    </li> -->
+                    <li>
+                      <div class="nav-btns align-center">
+                        <!-- <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button> -->
+                        <button id="change-password-modal" type="button" class="navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="nav-btns align-center">
+                        <button id="LogOut" class='align-center navbar-center ' type="submit" name="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> SignOut</button>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators hidden-xs">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive img-full" src="assets/styles/img/slide-1.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="assets/styles/img/slide-2.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="assets/styles/img/slide-3.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+                    <h2 class="brand-before">
+                        <small>Welcome to</small>
+                    </h2>
+                    <h1 class="brand-name">Beer Tracker</h1>
+                    <hr class="tagline-divider">
+                    <h2>
+                        <small>By
+                            <strong>Duvall</strong>
+                        </small>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">This is a tracker for
+                        <strong>beer</strong>
+                    </h2>
+                    <hr>
+                    <img class="img-responsive img-border img-left" src="assets/styles/img/intro-pic.jpg" alt="">
+                    <hr class="visible-xs">
+                    <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+                    <p>When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Beautiful beers that
+                        <strong>you have drank!</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12">
+                  <div class="create-a-beer">
+                    <button id="add-beer-button" type="button" class="" data-toggle="modal" data-target="#createBeer">
+                      Create Beer
+                    </button>
+                  </div>
+                <!-- beers content -->
+                  <div class="list-group" id="beers-content"></div>
+                  <div class="list-group" id="beers-content-text"></div>
+                <!-- end beers content -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Built by</p>
+                    <p>Matthew Duvall</p>
+                    <p>2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+<!-- end bootstrap -->
 
 </div>
 <!-- End of default-content -->

@@ -122,6 +122,7 @@ const onGetBeers = (event) => {
 
 const addHandlers = () => {
   $('#create-beer').on('submit', onCreateBeer)
+  $('#create_beer').on('submit', onCreateBeer)
   $('#update-beer').on('submit', onUpdateBeer)
   $(document).on('click', '.update-beer', updateItem)
   $(document).on('click', '#get-beer-button', onGetBeers)
