@@ -9,6 +9,31 @@ const beerEvents = require('./beer/events.js')
   // const api = require('./beer/api')
   // const ui = require('./beer/ui')
 
+// for secret keys:
+// const MessageVerifier = require('lib/wiring/message-verifier')
+// const googlePlacesKey = process.env.SECRET_PLACES_API_KEY
+const googlePlacesKeyPrint = function () {
+  console.log('secure-places-token', process.env.SECRET_PLACES_API_KEY)
+}
+// const googleJavascriptKey = new MessageVerifier('secure-javascript-token', process.env.SECRET_JAVASCRIPT_API_KEY)
+const googleJavascriptKeyPrint = function () {
+  console.log('secure-javascript-token', process.env.SECRET_JAVASCRIPT_API_KEY)
+}
+
+const GoogleMapsLoader = require('google-maps') // only for common js environments
+// GoogleMapsLoader.KEY = ''
+// GoogleMapsLoader.load(function (google) {
+//   new google.maps.Map(el, options)
+// })
+
+GoogleMapsLoader.onLoad(function (google) {
+  console.log('I just loaded google maps api')
+})
+
+// GoogleMapsLoader.release(function () {
+//   console.log('No google maps api around')
+// })
+
 $(() => {
   setAPIOrigin(location, config)
   $('.form-control').val('')
