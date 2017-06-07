@@ -25,6 +25,7 @@ $(() => {
     $(this).find('input,textarea,select').val('').end()
     $('#signInError').hide()
   })
+  // everytime modal closes it will do the function:
   $('#signInModal').on('hidden.bs.modal', function () {
     $(this).find('input,textarea,select').val('').end()
     $('#signUpError').hide()

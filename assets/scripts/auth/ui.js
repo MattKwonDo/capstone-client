@@ -34,9 +34,13 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
+  $('#signInModal').modal('toggle')
+  $('#signInModal').hide().modal('backdrop')
+
+  // $('.modal-backdrop').modal('toggle')
+  // $('#signInModal').close()
   // console.log('sign in token = ', data.user.token)
   $('#signUpModal').hide()
-  $('#signInModal').hide()
   // $('#title-message').html('Beer Tracker')
   // $('.nav-message').hide()
   $('#ChangePasswordSuccess').hide()
