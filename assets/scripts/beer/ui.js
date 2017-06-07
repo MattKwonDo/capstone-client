@@ -17,6 +17,8 @@ const clearBeerModal = function () {
 const createBeerSuccess = (data) => {
   // console.log('createBeerSuccess')
   $('.list-group').empty()
+  $('#createBeer').modal('hide')
+  $('.modal-backdrop').remove()
 // todo: add animation to the last item in this list
   getBeers()
 }

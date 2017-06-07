@@ -34,8 +34,9 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  $('#signInModal').modal('toggle')
-  $('#signInModal').hide().modal('backdrop')
+  // $('#signInModal').modal('toggle')
+  $('#signInModal').modal('hide')
+  $('.modal-backdrop').remove()
 
   // $('.modal-backdrop').modal('toggle')
   // $('#signInModal').close()
