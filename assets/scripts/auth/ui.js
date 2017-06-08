@@ -13,15 +13,17 @@ const beerEvents = require('../beer/events')
 
 const signUpSuccess = (data) => {
   console.log(data)
-  $('.form-control').val('')
-  $('#signUpModal').hide()
+  // $('.form-control').val('')
+  $('#signUpModal').modal('hide')
   // $('.modal-backdrop').remove()
   // $('#signUpModal').remove()
 
   $('#signInModal').modal('show')
   // $('.header-message').show().html('Congratulations, you have a new account.')
-  $('.sign-in-msg').html('Log in.')
-  $('#sign-in').trigger('reset')
+  // $('.sign-in-msg').html('Log in.')
+
+  // $('#sign-up').trigger('reset')
+
   // $('#signUpSuccessModal').modal('show')
   // resetPwValidation()
 }
