@@ -62,7 +62,9 @@ const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-
+  $('.carousel').carousel({
+    interval: 5000 // changes the speed
+  })
   // $('#sign-in-btn').on('click', function () {
   //   $('#signInModal').show()
   // })

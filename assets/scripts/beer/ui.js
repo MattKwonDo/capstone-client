@@ -156,7 +156,7 @@ const deleteBeerSuccess = (data) => {
   // store.beer = data.beer
   console.log('deleteBeerSuccess')
   // $('#beers-content').addClass('animated rollIn')
-  // getBeers()
+  getBeers()
   // $('#responses-content').hide()
   // $('#responses-content-text').hide()
 }
