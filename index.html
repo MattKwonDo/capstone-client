@@ -62,7 +62,7 @@
              <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
             </div>
             <div class="padding">
-              <button type="submit" value="SignIn" class="btn btn-primary btn-block" data-toggle="modal">Sign In</button>
+              <button type="submit" value="SignIn" class="btn btn-primary btn-block">Sign In</button>
             </div>
             <button id="sign-in-modal-close" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
           </fieldset>
@@ -77,6 +77,28 @@
     </div>
   </div>
 </div>
+
+<!-- <div id='signUpSuccessModal' class='modal fade'>
+   <div class='modal-dialog'>
+     <div class='modal-content'>
+       <div class='alert alert-success'>
+         <h4>Sign-Up Complete!</h4>
+         <p>Your acount was created successfully. Please Sign-In!</p>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div id='signUpFailureModal' class='modal fade'>
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='alert alert-danger'>
+          <h4>Sign-Up Failure!</h4>
+          <p>Your acount was not created successfully. Please try again!</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
       <!-- SIGN UP -->
       <div id="signUpModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
@@ -113,16 +135,6 @@
                  </div>
                  <div class="modal-footer"></div>
                </form>
-            </div>
-
-            <div class="alert alert-success">
-              <h4>Sign-Up Complete!</h4>
-              <p>Your acount was created successfully. Please Sign-In!</p>
-            </div>
-
-            <div class="alert alert-success">
-              <h4>Sign-Up Failure!</h4>
-              <p>Your acount was not created successfully. Please try again!</p>
             </div>
           </div>
         </div>
@@ -235,19 +247,19 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="col-sm-10 hideMe">
-                      <span class="input-group-addon"  id="beer-id"></span>
+                      <span class="input-group-addon"  id="beer-id">Beer ID</span>
                       <input type="text" name="beer[id]" id="beerId" class="form-control" hidden placeholder="Beer ID" aria-describedby="basic-addon1" required>
                     </div>
                     <div class="col-sm-10">
-                      <span class="input-group-addon" ></span>
+                      <span class="input-group-addon" >Brand</span>
                       <input type="text" name="beer[brand]" id="beer-brand-update" class="form-control" placeholder="Beer Title" aria-describedby="basic-addon1" required>
                     </div>
                     <div class="col-sm-10">
-                        <span class="input-group-addon" id="beer-q1"></span>
+                        <span class="input-group-addon" id="beer-q1">Name</span>
                       <input type="text" name="beer[name]" id="beer-name-update" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1" required>
                     </div>
                     <div class="col-sm-10">
-                      <span class="input-group-addon" ></span>
+                      <span class="input-group-addon" >Style</span>
                       <input type="text" name="beer[style]" id="beer-style-update" class="form-control" placeholder="Beer Style" aria-describedby="basic-addon1" required>
                     </div>
                   </div>
@@ -294,33 +306,33 @@
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                  <!-- <li>
-                      <a href="index.html">Home</a>
-                  </li> -->
-                  <li>
-                    <div class="nav-btns align-center page-load-view">
-                      <button id="sign-in-btn" class='align-center navbar-center' type="submit" data-toggle="modal" data-target="#signInModal">Sign In</button>
-                      <!-- <button id="sign-in-btn" class='align-center navbar-center' type="submit">Sign In</button> -->
-                    </div>
-                  </li>
-                  <li>
-                    <div class="nav-btns align-center page-load-view">
-                      <button id="sign-up-btn" class='align-center navbar-center' type="submit" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="nav-btns align-center sign-in-view">
-                      <!-- <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button> -->
-                      <button id="change-password-modal" type="button" class="navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="nav-btns align-center sign-in-view">
-                      <button id="LogOut" class='align-center navbar-center ' type="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> Sign Out</button>
-                    </div>
-                  </li>
-              </ul>
+            <ul class="nav navbar-nav">
+              <!-- <li>
+                  <a href="index.html">Home</a>
+              </li> -->
+              <li>
+                <div class="nav-btns align-center page-load-view">
+                  <button id="sign-in-btn" class='align-center navbar-center' type="submit" data-toggle="modal" data-target="#signInModal">Sign In</button>
+                  <!-- <button id="sign-in-btn" class='align-center navbar-center' type="submit">Sign In</button> -->
+                </div>
+              </li>
+              <li>
+                <div class="nav-btns align-center page-load-view">
+                  <button id="sign-up-btn" class='align-center navbar-center' type="submit" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                </div>
+              </li>
+              <li>
+                <div class="nav-btns align-center sign-in-view">
+                  <!-- <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button> -->
+                  <button id="change-password-modal" type="button" class="navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+                </div>
+              </li>
+              <li>
+                <div class="nav-btns align-center sign-in-view">
+                  <button id="LogOut" class='align-center navbar-center ' type="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> Sign Out</button>
+                </div>
+              </li>
+            </ul>
           </div>
           <!-- /.navbar-collapse -->
       </div>
@@ -406,7 +418,7 @@
                 <div class="col-lg-12">
                   <div class="create-a-beer">
                     <button id="add-beer-button" type="button" class="" data-toggle="modal" data-target="#createBeer">
-                      Create Beer
+                      Create a Beer Entry
                     </button>
                   </div>
                 <!-- beers content -->

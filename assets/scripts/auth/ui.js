@@ -3,22 +3,27 @@
 const store = require('../store.js')
 const beerEvents = require('../beer/events')
 
-const resetPwValidation = function () {
-  const message = document.getElementById('confirmMessage')
-  const pass2 = document.getElementById('password2')
-  pass2.style.backgroundColor = ''
-  message.style.color = ''
-  message.innerHTML = ''
-}
+// const resetPwValidation = function () {
+//   const message = document.getElementById('confirmMessage')
+//   const pass2 = document.getElementById('password2')
+//   pass2.style.backgroundColor = ''
+//   message.style.color = ''
+//   message.innerHTML = ''
+// }
 
 const signUpSuccess = (data) => {
+  console.log(data)
   $('.form-control').val('')
   $('#signUpModal').hide()
-  $('#signInModal').show()
+  // $('.modal-backdrop').remove()
+  // $('#signUpModal').remove()
+
+  $('#signInModal').modal('show')
   // $('.header-message').show().html('Congratulations, you have a new account.')
   $('.sign-in-msg').html('Log in.')
   $('#sign-in').trigger('reset')
-  resetPwValidation()
+  // $('#signUpSuccessModal').modal('show')
+  // resetPwValidation()
 }
 
 const signUpFailure = (error) => {
@@ -30,6 +35,7 @@ const signUpFailure = (error) => {
   }, 1000)
   $('#sign-up').trigger('reset')
   console.error('SignUp failed ran data is:', error)
+  // $('#signUpFailureModal').modal('show')
 }
 
 const signInSuccess = (data) => {
@@ -46,10 +52,12 @@ const signInSuccess = (data) => {
   // $('.nav-message').hide()
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
-  $('.nav-btns').show()
+  // $('.nav-btns').show()
 
 // hide main page buttons
   $('.page-load-view').hide()
+  $('.sign-in-view').show()
+
   // $('.page-load-view').addClass('fadeOut')
   // setTimeout(function () {
   //   $('.page-load-view').hide().fadeOut(3000)
@@ -83,6 +91,7 @@ const signInFailure = (error) => {
 }
 
 const signOutSuccess = () => {
+  console.log('signed out success')
   store.user = null
   $('.form-control').val('')
   $('#confirm-logout').modal('hide')
@@ -90,14 +99,15 @@ const signOutSuccess = () => {
   $('#signUpModal').hide()
   $('#signUpModal').trigger('reset')
   $('#signInModal').trigger('reset')
-  $('#signInModal').show()
+  // $('#signInModal').show()
   $('#beer-list-table').hide()
   $('#get-beer-button').hide()
   $('#add-beer-button').hide()
   $('.list-group').empty()
 
 // show main page buttons
-  $('.nav-btns').show()
+  // $('.nav-btns').show()
+  $('.sign-in-view').hide()
   $('.page-load-view').show()
 
   // $('#confirm-logout').remove()

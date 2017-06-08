@@ -6,26 +6,24 @@ const ui = require('./ui')
 // const beerEvents = require('../beer/events')
 
 const onSignUpClick = function (event) {
-  $('#signUpModal').show()
-
-  $('.form-control').val('')
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
-  $('#signInModal').hide()
+  $('#signUpModal').modal('show')
+  // $('.form-control').val('')
+  // $('#sign-up').trigger('reset')
+  // $('#sign-in').trigger('reset')
+  // $('#signInModal').hide()
 }
 
 const onSignInClick = function (event) {
-  $('#signUpModal').hide()
-  $('.form-control').val('')
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
+  // $('#signUpModal').hide()
+  // $('.form-control').val('')
+  // $('#sign-up').trigger('reset')
+  // $('#sign-in').trigger('reset')
   $('#signInModal').show()
 }
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -62,9 +60,6 @@ const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('.carousel').carousel({
-    interval: 3000 // changes the speed
-  })
   // $('#sign-in-btn').on('click', function () {
   //   $('#signInModal').show()
   // })
