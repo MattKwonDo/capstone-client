@@ -9,3 +9,4 @@ require('./assets/scripts/index.js')
 
 // styles
 require('./assets/styles/index.scss')
+require('./assets/styles/img/bg.jpg')
