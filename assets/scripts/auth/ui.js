@@ -3,6 +3,8 @@
 const store = require('../store.js')
 const beerEvents = require('../beer/events')
 
+const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
+
 // const resetPwValidation = function () {
 //   const message = document.getElementById('confirmMessage')
 //   const pass2 = document.getElementById('password2')
@@ -18,13 +20,13 @@ const signUpSuccess = (data) => {
   // $('.modal-backdrop').remove()
   // $('#signUpModal').remove()
 
-  $('#signInModal').modal('show')
+  // $('#signInModal').modal('show')
   // $('.header-message').show().html('Congratulations, you have a new account.')
   // $('.sign-in-msg').html('Log in.')
 
   // $('#sign-up').trigger('reset')
 
-  // $('#signUpSuccessModal').modal('show')
+  $('#signUpSuccessModal').modal('show')
   // resetPwValidation()
 }
 
@@ -80,6 +82,10 @@ const signInSuccess = (data) => {
   $('#add-beer-button').show()
   $('#beers-content').addClass('animated rollIn')
   beerEvents.onGetBeers()
+  $('.img-beer').addClass('animated infinite rubberBand')
+  // .one(animationEnd, function () {
+  //   $(this).removeClass('animated infinite ' + 'shake')
+  // })
 }
 
 const signInFailure = (error) => {

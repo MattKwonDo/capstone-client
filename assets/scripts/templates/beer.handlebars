@@ -1,33 +1,29 @@
-<table class="table" id="beer-list-table">
-  <BR />
-  <col style="width:20%">
-  <col style="width:20%">
-  <col style="width:40%">
+<table class="table table-hover" id="beer-list-table">
   <thead>
     <tr>
       <th>Brand</th>
       <th>Name</th>
       <th>Style</th>
-      <th class="hideMe">Owner</th>
+      <!-- <th class="hideMe">Owner</th> -->
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
-
     <tbody>
       {{#each beers as |beer|}}
-        <tr data-id="{{beer.id}}">
+      <tr data-id="{{beer.id}}">
           <td>{{beer.brand}}</td>
           <td>{{beer.name}}</td>
           <td>{{beer.style}}</td>
           <!-- <td><a href="https://mattkwondo.github.io/capstone-client/">https://mattkwondo.github.io/capstone-client/</a></td> -->
-          <td class="hideMe">{{beer._owner}}</td>
+          <!-- <td class="hideMe">{{beer._owner}}</td> -->
           <!-- <td>{{beer.question1}}</td> -->
-          <td class="glyphicon"><button type="button" class="remove-beer btn btn-default glyphicon" data-id="{{beer.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-          <td class="glyphicon"><button type="button" class="update-beer btn btn-default glyphicon" data-id="{{beer.id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+          <td><button type="button" class="update-beer btn btn-default glyphicon" data-id="{{beer.id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+          <td><button type="button" class="remove-beer btn btn-default glyphicon" data-id="{{beer.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
           <!-- <td class="glyphicon"><button type="button" id="{{beer.id}}" class="dashboard-button see-response btn btn-default glyphicon" data-id="{{beer.id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button></td> -->
-
-      </tr>
-    </tbody>
-
+  </tr>
     {{/each}}
+
+</tbody>
 
   </table>

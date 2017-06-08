@@ -22,13 +22,26 @@ body {
   padding: 5px;
 }
 
-.sign-in-view{
+.sign-in-view {
   display: none;
+}
+
+.signUpModal {
+  overflow: hidden;
+  position: fixed;
 }
 
 .hideMe {
   display: none;
 }
+.img-beer {
+  width: 30px;
+  height: 30px;
+
+}
+// .button-matt {
+//   hover
+// }
 
 // .sticky-top {
 //   position: sticky;
@@ -37,10 +50,9 @@ body {
 //   display: none;
 // }
 
-footer {
-  // height: 100px;
-  // width: 103.5%;
-}
+// footer {
+//
+// }
 
 // original styles:
 // $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';

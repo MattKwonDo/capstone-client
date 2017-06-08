@@ -2,6 +2,7 @@
 <html>
     <head>
       <title>Beer Tracker</title>
+      <!-- <img class='img-beer animated infinite rubberBand' src='https://s3.amazonaws.com/ryaong792/beer.png'/> -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -62,7 +63,7 @@
              <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
             </div>
             <div class="padding">
-              <button type="submit" value="SignIn" class="btn btn-primary btn-block">Sign In</button>
+              <button type="submit" value="SignIn" class="btn btn-primary btn-block button-matt">Sign In</button>
             </div>
             <button id="sign-in-modal-close" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
           </fieldset>
@@ -78,7 +79,7 @@
   </div>
 </div>
 
-<!-- <div id='signUpSuccessModal' class='modal fade'>
+<div id='signUpSuccessModal' class='modal fade'>
    <div class='modal-dialog'>
      <div class='modal-content'>
        <div class='alert alert-success'>
@@ -88,7 +89,7 @@
      </div>
    </div>
  </div>
-
+<!--
  <div id='signUpFailureModal' class='modal fade'>
     <div class='modal-dialog'>
       <div class='modal-content'>
@@ -101,7 +102,7 @@
   </div> -->
 
       <!-- SIGN UP -->
-      <div id="signUpModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+      <div id="signUpModal" class="modal fade container-fluid" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -127,13 +128,11 @@
                  </div>
                  <!-- Password Validation (5/18) -->
                  <button id="chpw-submit" type="submit" value="SignUp" class="btn btn-primary btn-block">Submit</button>
-                 <div class="modal-footer"></div>
-                 <div class="form-subtext">
+                 <!-- <div class="form-subtext">
                    <p>Did you get here on accident ?
                      <span id="return-to-log-in" class="form-link"><a href='#'>Return to LogIn</a></span>
                    </p>
-                 </div>
-                 <div class="modal-footer"></div>
+                 </div> -->
                </form>
             </div>
           </div>
@@ -220,7 +219,7 @@
                 </div>
               </div>
               <div class="padding"></div>
-              <button type="submit" class="btn btn-primary btn-block" id= "create_beer">Create Beer</button>
+              <button type="submit" class="btn btn-primary btn-block" id= "create_beer">Create Beer Entry!</button>
               <div class="padding"></div>
               <button type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
             </fieldset>
@@ -418,7 +417,7 @@
                 <div class="col-lg-12">
                   <div class="create-a-beer">
                     <button id="add-beer-button" type="button" class="" data-toggle="modal" data-target="#createBeer">
-                      Create a Beer Entry
+                      Create a Beer Entry <img class='img-beer' src='https://s3.amazonaws.com/ryaong792/beer.png'/>
                     </button>
                   </div>
                 <!-- beers content -->
