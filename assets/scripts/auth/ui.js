@@ -47,9 +47,20 @@ const signInSuccess = (data) => {
   $('#ChangePasswordSuccess').hide()
   $('#change-password').trigger('reset')
   $('.nav-btns').show()
-// show main page buttons
+
+// hide main page buttons
   $('.page-load-view').hide()
-  $('#beer-content-container').show()
+  // $('.page-load-view').addClass('fadeOut')
+  // setTimeout(function () {
+  //   $('.page-load-view').hide().fadeOut(3000)
+  // }, 1000)
+
+// show sign in page buttons
+  $('#beer-content-container').addClass('fadeOut').show()
+  // setTimeout(function () {
+  //   $('#beer-content-container').show().fadeIn(3000)
+  // }, 1000)
+
   // $('#default-content').toggle()
   $('.create-a-beer').show()
   $('.update-a-beer').show()
@@ -84,6 +95,12 @@ const signOutSuccess = () => {
   $('#get-beer-button').hide()
   $('#add-beer-button').hide()
   $('.list-group').empty()
+
+// show main page buttons
+  $('.nav-btns').show()
+  $('.page-load-view').show()
+
+  // $('#confirm-logout').remove()
 }
 
 const signOutFailure = (error) => {
