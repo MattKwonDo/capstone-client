@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Beer Tracker</title>
+      <!-- <img class='img-beer animated infinite rubberBand' src='https://s3.amazonaws.com/ryaong792/beer.png'/> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <!-- dynamic content scripts -->
+      <script src="//code.jquery.com/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <!-- end dynamic content scripts -->
+    <!-- animate css script tags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- google maps places javascript api / library -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script> -->
+
+<!-- bootstrap -->
+<!-- Bootstrap Core CSS -->
+    <link type="text/css" href="https://raw.githubusercontent.com/MattKwonDo/capstone-client/master/assets/styles/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link type="text/css" href="https://raw.githubusercontent.com/MattKwonDo/capstone-client/master/assets/styles/business-casual.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+<!-- end bootstrap -->
+
+    </head>
+
+    <body>
+
+<!-- Start the default content -->
+<div id="default-content" class="dynamic-content">
+
+<!-- ========= Authentication Container ============ -->
+<!-- SIGN IN -->
+<div id="signInModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+  <div class="modal-dialog"> <!-- makes the box small -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-title mdl-card__title">
+          <h3 class="sign-in-msg form-header">Sign-In</h3>
+        </div>
+      </div>
+      <div class="auth-alert">
+        <h3 id="signInError" class="form-error" ></h3>
+      </div>
+
+      <div class="modal-body">
+        <form id="sign-in">
+          <fieldset>
+            <div class="form-group blue-text">
+              <label for="name"> Email</label>
+              <input type="text" name="credentials[email]" class="form-control signInPaw" autocomplete="off" placeholder="Enter Email" required />
+             <label for="name">Password</label>
+             <input type="password" name="credentials[password]" class="form-control"  autocomplete="off" placeholder="Password" required />
+            </div>
+            <div class="padding">
+              <button type="submit" value="SignIn" class="btn btn-primary btn-block button-matt">Sign In</button>
+            </div>
+            <button id="sign-in-modal-close" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+          </fieldset>
+
+          <!-- <div id="register" class="form-subtext register">
+            <p>Not Registered?
+              <span id="sign-up-form" class="form-link"><a href='#'>Sign Up Here</a></span>
+            </p>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id='signUpSuccessModal' class='modal fade'>
+   <div class='modal-dialog'>
+     <div class='modal-content'>
+       <div class='alert alert-success'>
+         <h4>Sign-Up Complete!</h4>
+         <p>Your acount was created successfully. Please Sign-In!</p>
+       </div>
+     </div>
+   </div>
+ </div>
+<!--
+ <div id='signUpFailureModal' class='modal fade'>
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='alert alert-danger'>
+          <h4>Sign-Up Failure!</h4>
+          <p>Your acount was not created successfully. Please try again!</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+      <!-- SIGN UP -->
+      <div id="signUpModal" class="modal fade container-fluid" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="form-title mdl-card__title">
+                <h3 class="form-header">Create New Account</h3>
+              </div>
+            </div>
+            <div class="auth-alert">
+              <h3 id="signUpError" class="form-error"></h3>
+              <h3 id="signUpSuccess" class="form-success"></h3>
+            </div>
+            <div class="modal-body">
+               <form id="sign-up">
+                 <div class="form-group blue-text">
+                  <label for="name">Email</label>
+                  <input type="text" name="credentials[email]" class="form-control" autocomplete="off" placeholder="Email" required />
+                  <label for="name">Password</label>
+                  <input id="password1" type="password" name="credentials[password]" class="form-control" autocomplete="off" placeholder="Password" required />
+                  <label for="name">Password Confirmation</label>
+                  <input id="password2" type="password" name="credentials[password_confirmation]" class="form-control" autocomplete="off" placeholder="Confirm Password" required />
+                   <!-- Password Validation (5/18) -->
+                  <span id="confirmMessage" class="confirmMessage"></span>
+                 </div>
+                 <!-- Password Validation (5/18) -->
+                 <button id="chpw-submit" type="submit" value="SignUp" class="btn btn-primary btn-block">Submit</button>
+                 <!-- <div class="form-subtext">
+                   <p>Did you get here on accident ?
+                     <span id="return-to-log-in" class="form-link"><a href='#'>Return to LogIn</a></span>
+                   </p>
+                 </div> -->
+               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Change Password Modal-->
+        <div id="changePasswordModal" class="modal fade container-fluid" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="form-title mdl-card__title">
+                  <h3 class="form-header">Change Your Password</h3>
+                </div>
+              </div>
+              <div class="auth-alert">
+                <h3 id="ChangePasswordError" class="form-error"></h3>
+                <h3 id="ChangePasswordSuccess" class="form-success"></h3>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                  <fieldset>
+                    <div class="form-group-pw blue-text">
+                     <label for="name">Old Password</label>
+                     <input type="password" name="passwords[old]" class="form-control" autocomplete="off" placeholder="Old Password" required />
+                     <label for="name">New Password</label>
+                     <input type="password" name="passwords[new]" class="form-control" autocomplete="off" placeholder="New Password" required />
+
+                     <div class="padding"></div>
+                     <button id="changePasswordSubmit" type="submit" class="btn btn-primary btn-block">Change Password</button>
+                     <!-- value="Change Password"  -->
+                    </div>
+                    <div class="padding"></div>
+                    <button id="changePasswordModalClose" type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <!-- Logout modal -->
+  <div id="confirm-logout" class="modal fade container-fluid confirm-logout-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="form-title mdl-card__title">
+            <h3 class="form-header">Sign Out!</h3>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="sign-out" type="submit" data-dismiss="modal" class="btn btn-danger btn-sm  btn-block">SignOut</button>
+          <button type="button" data-dismiss="modal" class="btn btn-sm btn-block">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modals -->
+  <!-- Create Beer Modal -->
+  <div id="createBeer" class="modal fade container-fluid" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="form-title mdl-card__title">
+            <h3 class="form-header">Create Beer</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form id="create-beer" class="form-horizontal">
+            <fieldset>
+              <div class="input-group">
+                <div class="col-sm-12">
+                  <span class="input-group-addon">Beer Brand</span>
+                  <input type="text" name="beer[brand]" id="beer-brand" class="form-control" placeholder="Beer Brand" aria-describedby="basic-addon1" required>
+                </div>
+                <div class="col-sm-12">
+                  <span class="input-group-addon" id="beer-q1">Beer Name</span>
+                  <input type="text" name="beer[name]" id="q1" class="form-control" placeholder="Beer Name" aria-describedby="basic-addon1" required>
+                </div>
+                <div class="col-sm-12">
+                  <span class="input-group-addon">Beer Style</span>
+                  <input type="text" name="beer[style]" id="beer-style" class="form-control" placeholder="Beer Style Here" aria-describedby="basic-addon1" required>
+                </div>
+              </div>
+              <div class="padding"></div>
+              <button type="submit" class="btn btn-primary btn-block" id= "create_beer">Create Beer Entry!</button>
+              <div class="padding"></div>
+              <button type="button" class="btn btn-resolved btn-block" data-dismiss="modal">Close</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Create Beer Modal -->
+  <!-- Update Beer Modal -->
+    <div id="updateBeer" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Update Beer</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form id="update-beer">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="col-sm-10 hideMe">
+                      <span class="input-group-addon"  id="beer-id">Beer ID</span>
+                      <input type="text" name="beer[id]" id="beerId" class="form-control" hidden placeholder="Beer ID" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="col-sm-10">
+                      <span class="input-group-addon" >Brand</span>
+                      <input type="text" name="beer[brand]" id="beer-brand-update" class="form-control" placeholder="Beer Title" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="col-sm-10">
+                        <span class="input-group-addon" id="beer-q1">Name</span>
+                      <input type="text" name="beer[name]" id="beer-name-update" class="form-control" placeholder="Question 1" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="col-sm-10">
+                      <span class="input-group-addon" >Style</span>
+                      <input type="text" name="beer[style]" id="beer-style-update" class="form-control" placeholder="Beer Style" aria-describedby="basic-addon1" required>
+                    </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-primary" id= "update_beer">Update Beer</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </fieldset>
+                <br>
+                </form>
+              </div>
+
+              <div id="map"></div>
+
+            </div>
+          </div>
+        </div>
+  <!-- End of Update Beer Modal -->
+
+  <!-- responses content -->
+    <!-- <div class="list-group" id="responses-content"></div>
+    <div class="list-group" id="responses-content-text"></div> -->
+
+
+<!-- bootstrap -->
+<!-- <div id="jumbotron-top" class="jumbotron jumbotron-fluid  beforesignin">
+  <h2 id="title-message" class="title_message ">Beer Tracker</h2>
+  <div class="jumbotron-msg container push-spaces">
+    <p></div>
+  </div> -->
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default fixed-top bg-faded" role="navigation"> <!-- class="sticky-top"  -->
+      <div>
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+              <a class="navbar-brand" href="index.html">Beer Tracker</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <!-- <li>
+                  <a href="index.html">Home</a>
+              </li> -->
+              <li>
+                <div class="nav-btns align-center page-load-view">
+                  <button id="sign-in-btn" class='align-center navbar-center' type="submit" data-toggle="modal" data-target="#signInModal">Sign In</button>
+                  <!-- <button id="sign-in-btn" class='align-center navbar-center' type="submit">Sign In</button> -->
+                </div>
+              </li>
+              <li>
+                <div class="nav-btns align-center page-load-view">
+                  <button id="sign-up-btn" class='align-center navbar-center' type="submit" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                </div>
+              </li>
+              <li>
+                <div class="nav-btns align-center sign-in-view">
+                  <!-- <button id="change-password-modal" type="button" class="btn btn-primary  navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button> -->
+                  <button id="change-password-modal" type="button" class="navbar-center change-pw" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+                </div>
+              </li>
+              <li>
+                <div class="nav-btns align-center sign-in-view">
+                  <button id="LogOut" class='align-center navbar-center ' type="submit" value="SignOut" data-toggle="modal" data-target=".confirm-logout-modal"> Sign Out</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  <div class="brand">Beer Tracker</div>
+      <div class="address-bar">A beautiful place</div>
+
+    <div class="container">
+
+        <div class="row page-load-view">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators hidden-xs">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive img-full" src="https://s3.amazonaws.com/mattkwondo3/slide-1.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="https://s3.amazonaws.com/mattkwondo3/slide-2.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="https://s3.amazonaws.com/mattkwondo3/slide-3.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+                    <!-- <h2 class="brand-before">
+                        <small>Welcome to</small>
+                    </h2>
+                    <h1 class="brand-name">Beer Tracker</h1>
+                    <hr class="tagline-divider">
+                    <h2>
+                        <small>By
+                            <strong>Duvall</strong>
+                        </small>
+                    </h2> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row page-load-view">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center ">This is a tracker for
+                        <strong>beer</strong>
+                    </h2>
+                    <hr>
+                    <img class="img-responsive img-border img-left intro-pic" src="https://s3.amazonaws.com/mattkwondo3/intro-pic.jpg" alt="">
+                    <hr class="visible-xs">
+                    <p>"Beer is proof that God loves us and wants us to be happy." - Some guy.</p>
+                    <p>Beer is also one of the oldest beverages humans have produced, dating back to at least the fifth millennium BC and recorded in the written history of ancient Egypt and Mesopotamia and has spread throughout world.</p>
+                    <p>The invention of beer has been argued to be responsible for humanity's ability to develop technology and build civilization.</p>
+                    <p>There are good ships and wood ships, ships that sail the sea, but the best ships are friendships, and may they always be!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="beer-content-container">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Beautiful beers that
+                        <strong>you have drank!</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12">
+                  <div class="create-a-beer">
+                    <button id="add-beer-button" type="button" class="" data-toggle="modal" data-target="#createBeer">
+                      Create a Beer Entry <img class='img-beer' src='https://s3.amazonaws.com/ryaong792/beer.png'/>
+                    </button>
+                  </div>
+                <!-- beers content -->
+                  <div class="list-group" id="beers-content"></div>
+                  <div class="list-group" id="beers-content-text"></div>
+                <!-- end beers content -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+<!-- end bootstrap -->
+
+</div>
+<!-- End of default-content -->
+
+<footer>
+    <div class="container fixed-bottom">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>Built by
+                  <strong>
+                    <br>Matthew Duvall
+                    <br>2017
+                  </strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
