@@ -24,7 +24,7 @@ const createBeerSuccess = (data) => {
 }
 
 const createBeerFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 const updateBeerSuccess = (data) => {
@@ -35,7 +35,7 @@ const updateBeerSuccess = (data) => {
 
 const updateBeerFailure = (error) => {
   // console.log('updateBeerSuccess, error = ', error)
-  console.error(error)
+  // console.error(error)
 }
 
 // const getBeersSuccess = (data) => {
@@ -49,10 +49,10 @@ const updateBeerFailure = (error) => {
 const getBeersSuccess = (data) => {
   $('#beers-content').hide()
   $('#beers-content-text').hide()
-  console.log(data)
-  console.log(data.beers)
-  console.log(data.beers.length)
-  console.log('got beers')
+  // console.log(data)
+  // console.log(data.beers)
+  // console.log(data.beers.length)
+  // console.log('got beers')
   // if (data.beers.length !== undefined)
   if (data.beers[0] !== undefined) {
     const showBeersHtml = showBeersTemplate({ beers: data.beers })
@@ -61,7 +61,7 @@ const getBeersSuccess = (data) => {
     $('.list-group').empty()
     $('#beers-content').show()
     $('#beers-content').html(showBeersHtml)
-    console.log('woah, all the way here')
+    // console.log('woah, all the way here')
     // console.log('this: ', this)
     // $(this).last('tr').addClass('animated fadeOutUpBig timing')
     // $('#beers-content').removeClass('animated rollIn')
@@ -74,7 +74,7 @@ const getBeersSuccess = (data) => {
 }
 
 const getBeersFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 // const getResponsesSuccess = (data) => {
@@ -116,7 +116,7 @@ const getDynamicBeersSuccess = (data) => {
 }
 
 const getDynamicBeersFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 const getOneDynamicBeerSuccess = (data) => {
@@ -149,12 +149,12 @@ const getOneDynamicBeerSuccess = (data) => {
 }
 
 const getOneDynamicBeerFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 const deleteBeerSuccess = (data) => {
   // store.beer = data.beer
-  console.log('deleteBeerSuccess')
+  // console.log('deleteBeerSuccess')
   // $('#beers-content').addClass('animated rollIn')
   getBeers()
   // $('#responses-content').hide()
@@ -163,7 +163,7 @@ const deleteBeerSuccess = (data) => {
 
 const deleteBeerFailure = (error) => {
   // console.log('deleteBeerFailure, error = ', error)
-  console.error(error)
+  // console.error(error)
 }
 
 module.exports = {

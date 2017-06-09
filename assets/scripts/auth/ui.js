@@ -14,7 +14,7 @@ const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimati
 // }
 
 const signUpSuccess = (data) => {
-  console.log(data)
+  // console.log(data)
   // $('.form-control').val('')
   $('#signUpModal').modal('hide')
   // $('.modal-backdrop').remove()
@@ -38,7 +38,7 @@ const signUpFailure = (error) => {
     $('#signUpError').fadeOut(900)
   }, 1000)
   $('#sign-up').trigger('reset')
-  console.error('SignUp failed ran data is:', error)
+  // console.error('SignUp failed ran data is:', error)
   // $('#signUpFailureModal').modal('show')
 }
 
@@ -95,11 +95,11 @@ const signInFailure = (error) => {
     $('#signInError').fadeOut(700)
   }, 1000)
   $('#sign-in').trigger('reset')
-  console.error('signInFailure(), error: ', error)
+  // console.error('signInFailure(), error: ', error)
 }
 
 const signOutSuccess = () => {
-  console.log('signed out success')
+  // console.log('signed out success')
   store.user = null
   $('.form-control').val('')
   $('#confirm-logout').modal('hide')
@@ -124,7 +124,7 @@ const signOutSuccess = () => {
 const signOutFailure = (error) => {
   $('.form-control').val('')
   $('#change-password').trigger('reset')
-  console.error('signOutFailure ran:', error)
+  // console.error('signOutFailure ran:', error)
 }
 
 const changePasswordSuccess = () => {
@@ -143,7 +143,7 @@ const changePasswordFailure = (error) => {
     $('#ChangePasswordError').fadeOut(700)
   }, 1000)
   $('#change-password').trigger('reset')
-  console.error('changePasswordFailure ran:', error)
+  // console.error('changePasswordFailure ran:', error)
 }
 
 module.exports = {

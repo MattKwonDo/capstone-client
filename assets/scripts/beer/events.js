@@ -7,7 +7,7 @@ const ui = require('./ui')
 const store = require('../store')
 
 const onCreateBeer = function (event) {
-  console.log('create beer ran')
+  // console.log('create beer ran')
   event.preventDefault()
   const data = getFormFields(this)
   api.createBeer(data)
@@ -28,9 +28,9 @@ const onCreateBeer = function (event) {
 
 const onUpdateBeer = function (event) {
   event.preventDefault()
-  console.log(event)
-  console.log(event.target)
-  console.log(this)
+  // console.log(event)
+  // console.log(event.target)
+  // console.log(this)
   const data = getFormFields(this)
   // console.log('>>>>>>>>onUpdateBeer: data = ', data)
   api.updateBeer(data)
