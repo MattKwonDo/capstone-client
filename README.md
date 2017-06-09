@@ -1,7 +1,14 @@
 # capstone-client
 
-This is the front-end for my capstone project, a beer tracker, which will be
-deployed on Heroku.
+This is the front-end for my capstone project, a beer tracker, which will be deployed on Heroku.
+
+![Beer Tracker Screenshot](https://s3.amazonaws.com/mattkwondo3/Screen+Shot+2017-06-08+at+11.44.27+PM.png "Beer Tracker")
+
+## URL
+- [Deployed Front-end](https://mattkwondo.github.io/capstone-client/index.html)
+
+- [Back-end Repo](https://github.com/MattKwonDo/capstone-express-api)
+- [Deployed Back-end](https://guarded-refuge-25258.herokuapp.com/)
 
 ## Wireframes
 
@@ -20,22 +27,41 @@ that lets me track the beers I try.
 - As a user, I want to delete entries if I want to forget about some.
 - As a user, I want to be able to view all of my beers in a dashboard.
 
-## content to be added in the future:
-- An embedded screenshot of the app
-- Explanations of the technologies used
-- A couple paragraphs about the general approach you took
-- Installation instructions for any dependencies
-- Link to your user stories – who are your users, what do they want, and why?
-- Link to your wireframes – sketches of major views / interfaces in your application
-- Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
-- Descriptions of any unsolved problems or major hurdles you had to overcome
+## Technologies
+
+-   HTML
+-   CSS
+-   JavaScript
+-   Bootstrap
+-   Ajax
+-   jQuery
+-   Handlebars
+-   Express
+-   Mongoose
+-   MongoDB
+-   Heroku
+-   Animate.css
+
+## Approach
+- For this app I wanted to add some extra features and make it look nicer than
+my previous projects. I started with a express/mongo back-end, deployed to
+Heroku, and utilized the browser-template for the front-end.
+
+I used a bootstrap template to get me started on the
+visual design and modified it with pictures and content of my own. I was hoping
+to also incorporate a third-party API, but did not get around to that.
+
+## Unsolved Problems
+- I don't have any unsolved problems, but would like to integrate with a google
+maps API to allow search functionality to pull in the location you bought or
+tried a beer.
 
 
 # Template Content:
 
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+# Template Content
 
 A template for starting front-end projects. Webpack for `require` system, build
 pipeline, and development server. Boostrap and Handlebars.js included. No
@@ -48,12 +74,6 @@ Install with `npm install`.
 -   [Webpack](https://webpack.github.io)
 -   [Bootstrap](http://getbootstrap.com)
 -   [Handlebars.js](http://handlebarsjs.com)
-
-At the beginning of each cohort, update the versions in
-[`package.json`](package.json) by replace all versions with a glob (`*`) and
-running `npm update --save && npm update --save-dev`. You may wish to test these
-changes by deleting the `node_modules` directory and running `npm install`.
-Fix any conflicts.
 
 ## Installation
 
